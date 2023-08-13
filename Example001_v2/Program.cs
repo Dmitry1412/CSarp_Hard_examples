@@ -14,18 +14,14 @@ string userData = System.Console.ReadLine(); //вводим число тип д
 string zapyataya = ","; 
 int indexOfZap = userData.IndexOf(zapyataya); // ищем порядковый индекс "," в переменной userData
 char[] stroka = new char [userData.Length]; // определяем символьный массив длиной userData (исходный)
-char[] strokaMod = new char [userData.Length];//определяем символьный массив длиной userData (модифицированный)
-for (int i = 0; i < userData.Length; i++)
-{
-    stroka[i] = userData[i];//наполняем исходный массив элементами строки userData
-}
+
 if (indexOfZap == 1)// определяем размер числа, если условие true число <10
 {
     for (int j = 0; j < stroka.Length; j++)
     {
         if (j == 2)
             continue;
-        strokaMod[j] = stroka[j];//заполняем модифицированный массив данными исодного массива за исключением 2 элемента массива
+        stroka[j] = userData[j];//заполняем массив данными userData
     }
 }
 else// алгоритм действий для числа большего, чем 10
@@ -34,7 +30,7 @@ else// алгоритм действий для числа большего, ч�
     {
         if (j == 1)
             continue;
-        strokaMod[j] = stroka[j];
+        stroka[j] = userData[j];
     }
 }
-System.Console.WriteLine(strokaMod);
+System.Console.WriteLine(stroka);
